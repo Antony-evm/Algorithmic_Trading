@@ -1,0 +1,6 @@
+
+*.parquet
+.ipynb_checkpoints/Downloading and Saving Data-checkpoint.ipynb
+.ipynb_checkpoints/Untitled-checkpoint.ipynb
+.ipynb_checkpoints/Untitled-checkpoint.ipynb
+*.pyc
