@@ -15,14 +15,14 @@ def save_indexes(interval:str='1d',sp500:bool=True,ftse100:bool=True)->None:
     path = 'Ticker Data//Indexes'
     if sp500:
         print('Downloading SP500')
-        df = web.DataReader('^GSPC',interval=interval,progress=False)
+        df = web.DataReader('^GSPC',interval=interval,progress=False,show_errors=False)
         if len(df)==0:
             print('SP500 failed to download')
         else:
             df.to_parquet(f'{path}//SP500.parquet')
     if ftse100:
         print('Downloading FTSE100')
-        df = web.DataReader('^FTSE',interval=interval,progress=False)
+        df = web.DataReader('^FTSE',interval=interval,progress=False,show_errors=False)
         if len(df)==0:
             print('FTSE100 failed to download')
         else:
@@ -40,10 +40,10 @@ def save_tickers(tickers:list,interval:str='1d',suffix=None)->None:
     path = 'Ticker Data//Tickers'
     for idx,ticker in enumerate(tickers):
         print(f'{idx+1}/{len(tickers)}')
-        df = web.DataReader(ticker,interval=interval,progress=False)
+        df = web.DataReader(ticker,interval=interval,progress=False,show_errors=False)
         if len(df)==0:
             if suffix:
-                df = web.DataReader(ticker+suffix,interval=interval,progress=False)
+                df = web.DataReader(ticker+suffix,interval=interval,progress=False,show_errors=False)
         if len(df)==0:
             print(f'{ticker} failed to download')
         else:
