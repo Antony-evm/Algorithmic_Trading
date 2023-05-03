@@ -2,15 +2,15 @@ import pandas as pd
 import numpy as np
 
 
-def SMA(df, periods=14):
+def SMA(df: pd.DataFrame, periods: int = 14) -> pd.DataFrame:
     return df.rolling(window=periods).mean()
 
 
-def EMA(df, periods=14):
+def EMA(df: pd.DataFrame, periods: int = 14) -> pd.DataFrame:
     return df.ewm(span=periods, min_periods=periods).mean()
 
 
-def ATR(df, span=14):
+def ATR(df: pd.DataFrame, span: int = 14) -> pd.DataFrame:
     high_low = df["High"] - df["Low"]
     high_close = np.abs(df["High"] - df["Close"].shift())
     low_close = np.abs(df["Low"] - df["Close"].shift())

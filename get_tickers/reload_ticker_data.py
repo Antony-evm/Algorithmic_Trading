@@ -31,7 +31,7 @@ def save_indexes(interval: str = "1d", sp500: bool = True, ftse100: bool = True)
             df.to_parquet(f"{path}//FTSE100.parquet")
 
 
-def save_tickers(tickers: list, interval: str = "1d", suffix=None) -> None:
+def save_tickers(tickers: list, interval: str = "1d", suffix: None = None) -> None:
     """
     Use given tickers to retrieve data in timeseries format from yahoo finance.
     If ticker is not available it will print an appropriate message to the console
